@@ -230,6 +230,94 @@ footer {
   font-size: 0.85rem;
 }
 
+/* ---------------- Now callout & project cards ---------------- */
+
+section {
+  margin-bottom: 8px;
+}
+
+.now-box {
+  background: var(--accent-soft);
+  border: 1px solid #CDE3D6;
+  border-left: 4px solid var(--accent);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+
+.now-box p {
+  margin: 0 0 10px 0;
+}
+
+.now-box p:last-child {
+  margin-bottom: 0;
+}
+
+.now-date {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-card {
+  background: #ffffff;
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: 0 1px 3px rgba(26, 29, 31, 0.06);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  border-color: #CDE3D6;
+  box-shadow: 0 6px 18px rgba(15, 107, 83, 0.10);
+}
+
+.project-card h3 {
+  font-size: 1.08rem;
+  margin-bottom: 4px;
+}
+
+.project-tech {
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0 0 8px 0 !important;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  margin: 0 0 10px 0;
+}
+
+.project-card p:last-child {
+  margin-bottom: 0;
+}
+
+.project-stat {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+@media (max-width: 720px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ---------------- Mobile ---------------- */
 
 @media (max-width: 720px) {
@@ -290,9 +378,33 @@ footer {
         Lab, working on embedding models for mathematical reasoning.
       </p>
       <p>
-        Currently on the lookout for software, math, or robotics research
-        and internship opportunities — feel free to reach out!
+        I'm seeking a Summer 2027 internship in ML / software engineering —
+        feel free to reach out!
       </p>
+    </section>
+
+    <hr>
+
+    <section id="now">
+      <h2>Now</h2>
+      <div class="now-box">
+        <span class="now-date">November 2026</span>
+        <p>
+          I'm in the UW MATH AI Lab with Dr. Henry Kvinge, working on
+          Math2Vec — embedding models for mathematical reasoning — and
+          MELD, a benchmark of mathematically equivalent but lexically
+          different theorem pairs.
+        </p>
+        <p>
+          Right now I'm expanding the diversity of the data, exploring
+          frame averaging, and looking at time / inference compute in
+          embedding models.
+        </p>
+        <p>
+          I'm also applying for Summer 2027 internships in ML and
+          software engineering.
+        </p>
+      </div>
     </section>
 
     <hr>
@@ -304,15 +416,18 @@ footer {
         <h3>Math2Vec: Embedding Models for Mathematical Meaning</h3>
         <p class="entry-meta">UW MATH AI Lab. Led by Dr. Henry Kvinge</p>
         <p>
-          Fine-tuned current SOTA embedding models to develop MathLeap, a
+          Math2Vec is the project; MathLeap is the model family. I
+          fine-tuned current SOTA embedding models to develop MathLeap, a
           family of embedding models to improve capability in embedding
           mathematical content across natural language, LaTeX, and LEAN.
-          Built MELD, a benchmark consisting of equivalent pairs across
-          mathematical domains to evaluate embedding models on
-          mathematical tasks.
+          Our fine-tuned models gained +10.8 nDCG@10 over the base model.
+          I also built MELD, a benchmark of 270 mathematically equivalent
+          theorem pairs across 9 domains to evaluate embedding models on
+          mathematical tasks — +22.8 Recall@10 over the average of
+          general embedding models.
         </p>
         <ul class="entry-note">
-          <li>First-author paper accepted to the <a href="https://ai4math2026.github.io/" target="_blank" rel="noopener">ICML 2026 AI4Math workshop</a> and oral spotlight at <a href="https://www.tagds.com/events/tag-ds-2026" target="_blank" rel="noopener">TAG-DS</a></li>
+          <li>Co-first-authored paper (joint first author) accepted to the <a href="https://ai4math2026.github.io/" target="_blank" rel="noopener">ICML 2026 AI4Math workshop</a>, oral spotlight at <a href="https://www.tagds.com/events/tag-ds-2026" target="_blank" rel="noopener">TAG-DS 2026</a>, and presented at the NeurIPS 2026 MATH-AI Workshop</li>
         </ul>
         <p class="entry-links">
           <a href="https://arxiv.org/abs/2606.23959" target="_blank" rel="noopener">arXiv</a>
@@ -331,9 +446,9 @@ footer {
         <h3>SDE Intern</h3>
         <p class="entry-meta">Novelty Hill IP</p>
         <ul>
-          <li>Built a patent retrieval system with OpenSearch and Azure AI Search</li>
+          <li>Built a patent retrieval system with OpenSearch and Azure AI Search over 16M records, with sub-second latency</li>
           <li>Designed PySpark/SQL pipelines in Microsoft Fabric for data processing</li>
-          <li>Built an NLP pipeline that improved claim scoring accuracy by 15%</li>
+          <li>Built an NLP pipeline that improved claim scoring accuracy by 15% on expert-labeled data</li>
         </ul>
       </div>
     </section>
@@ -342,7 +457,30 @@ footer {
 
     <section id="projects">
       <h2>Projects</h2>
-      <p class="placeholder">[Projects coming soon.]</p>
+      <ul class="project-grid">
+        <li class="project-card">
+          <h3>Duvall Days Festival Guide</h3>
+          <p class="project-tech">Flutter · Dart</p>
+          <p>A guide app for the annual Duvall Days city festival, built independently, iterating with city stakeholders to scope requirements.</p>
+          <p><span class="project-stat">600+ downloads</span> on Google Play, promoting 500+ local businesses.</p>
+        </li>
+        <li class="project-card">
+          <h3>We Meditate</h3>
+          <p class="project-tech">React Native</p>
+          <p>Cross-platform mental health app. I built the navigation architecture and video playback infrastructure, working with a global 5-person team.</p>
+          <p><span class="project-stat">10K+ downloads · 4.2 rating</span> across both app stores.</p>
+        </li>
+        <li class="project-card">
+          <h3>Graph Algorithm Visualizer</h3>
+          <p class="project-tech">React · FastAPI · Python</p>
+          <p>Draw graphs in a React UI and watch Dijkstra's and A* run step by step, with the algorithms computed in a Python backend served through a FastAPI REST API.</p>
+        </li>
+        <li class="project-card">
+          <h3>Reservation System</h3>
+          <p class="project-tech">Java · Azure SQL · JDBC</p>
+          <p>Multi-user reservation app with a relational schema on Azure SQL, JDBC-backed CRUD operations, and salted password hashing for secure user authentication.</p>
+        </li>
+      </ul>
     </section>
 
     <hr>
@@ -352,12 +490,13 @@ footer {
       <p>
         <strong>University of Washington</strong><br>
         B.S. Applied and Computational Mathematical Sciences — Discrete
-        Mathematics and Algorithms
+        Mathematics and Algorithms<br>
+        GPA 3.5 · Expected December 2027
       </p>
     </section>
 
     <footer>
-      <p>Last updated Sep 2026.</p>
+      <p>Last updated Nov 2026.</p>
     </footer>
 
   </main>
